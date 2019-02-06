@@ -23,12 +23,16 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/show/1", name="show")
+     * @Route("/show/{id}", name="show")
      */
-    public function show()
+    public function show($id)
     {
+        $repo = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repo->find($id);
+
         return $this->render('home/show.html.twig', [
             'controller_name' => 'HomeController',
+            'article' => $article
         ]);
     }
 
