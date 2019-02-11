@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttopFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Article;
 
 class HomeController extends AbstractController
@@ -39,7 +41,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/addArticle", name="addArticle")
      */
-    public function addArticle()
+    public function addArticle(Request $request, ObjectManager $manager)
     {
         return $this->render('home/addArticle.html.twig', [
             'controller_name' => 'HomeController',
@@ -55,4 +57,6 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    
 }
