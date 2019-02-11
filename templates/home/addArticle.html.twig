@@ -5,6 +5,18 @@
 
 <p>WORK IN PROGRESS</p>
 
-    {{ form(formArticle) }}
+    {{ form_start(formArticle) }}
+
+        <div class="form-group">
+        <label for="">Titre</label>
+        {{ form_widget(formArticle.title) }}
+        </div>
+
+        <div class="form-group">
+        <label for="">Contenu</label>
+        {{ form_widget(formArticle.content) }}
+        </div>
+
+    {{ form_end(formArticle) }}
 
 {% endblock %}
