@@ -41,10 +41,21 @@ class HomeController extends AbstractController
     /**
      * @Route("/addArticle", name="addArticle")
      */
-    public function addArticle(Request $request, ObjectManager $manager)
+    public function addArticle(ObjectManager $manager)
     {
+        $article = new Article();
+
+        $form = $this->createFormBuilder($article)
+                     ->add('title')
+                     ->add('content') 
+                     ->add('image')  
+                     ->getForm();
+
+        
+        
         return $this->render('home/addArticle.html.twig', [
             'controller_name' => 'HomeController',
+            'formArticle' => $form->createView()
         ]);
     }
 
