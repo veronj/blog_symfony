@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttopFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Article;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class HomeController extends AbstractController
 {
@@ -49,6 +50,9 @@ class HomeController extends AbstractController
                      ->add('title')
                      ->add('content') 
                      ->add('image')  
+                     ->add('save', SubmitType::class, [
+                         'label' => 'Submit'
+                     ])
                      ->getForm();
 
         
