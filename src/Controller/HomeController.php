@@ -50,9 +50,7 @@ class HomeController extends AbstractController
                      ->add('title')
                      ->add('content') 
                      ->add('image')  
-                     ->add('save', SubmitType::class, [
-                         'label' => 'Submit'
-                     ])
+                     
                      ->getForm();
 
         
